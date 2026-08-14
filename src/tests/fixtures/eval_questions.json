@@ -1,0 +1,747 @@
+{
+  "short_names": {
+    "Burlinson": "1-s2.0-S0140988325000672-main.pdf",
+    "Calvillo": "1-s2.0-S0301421525000862-main.pdf",
+    "Edwards-Jones": "1-s2.0-S1755008425000705-main.pdf",
+    "Poulter": "1-s2.0-S2214629624004663-main.pdf",
+    "Peacock": "1-s2.0-S2214629626003270-main.pdf",
+    "Taylor": "A-policy-relevant-research-agenda-to-support-accelerated-industrial-decarbonisation-in-the-UK.pdf",
+    "Seger": "Firm-level-optimisation-strategies-for-sustainable-and-cost-effective-electric-vehicle-workplace-charging.pdf",
+    "Sharmina": "s41560-025-01898-3.pdf"
+  },
+  "questions": [
+    {
+      "id": "B1",
+      "section": "Burlinson: socioeconomic inequality in low-carbon technology adoption",
+      "tags": [
+        "single"
+      ],
+      "input": "Which three low-carbon technologies does the study track, and what longitudinal dataset does it use?",
+      "output": "Solar photovoltaics, solar water heating, and electric vehicles, using UKHLS (Understanding Society), comparing Wave 4 against Wave 10. Burlinson p1, p8."
+    },
+    {
+      "id": "B2",
+      "section": "Burlinson: socioeconomic inequality in low-carbon technology adoption",
+      "tags": [
+        "single",
+        "trap"
+      ],
+      "input": "What share of the UK's 2035 power sector abatement target does the paper attribute to consumer adoption of low-carbon technologies?",
+      "output": "Nearly half, 47%, citing the Committee on Climate Change (2022). Burlinson p1. The trap is that the same page discusses the 2050 net zero commitment, so a retrieval hit on \"target\" can return the wrong year."
+    },
+    {
+      "id": "B3",
+      "section": "Burlinson: socioeconomic inequality in low-carbon technology adoption",
+      "tags": [
+        "single"
+      ],
+      "input": "What were the 2021 shares of new UK vehicle sales for fully electric vehicles and plug-in hybrids, and what is the projected 2030 EV stock?",
+      "output": "12% fully electric and 7% plug-in hybrid in 2021; around 250,000 EVs on UK roads at time of writing, expected to reach 10 million by 2030 (OFGEM 2023). Burlinson p2."
+    },
+    {
+      "id": "B4",
+      "section": "Burlinson: socioeconomic inequality in low-carbon technology adoption",
+      "tags": [
+        "table",
+        "compute"
+      ],
+      "input": "In the persistent adopters/non-adopters sub-sample, which technology has the highest combined contribution from parental background, and how does that compare with the largest single contributor for solar PV?",
+      "output": "Table 5, p8. Parental occupation plus parental education: HYBRIDEV 48.16% + 18.24% = 66.40%, SOLARHEAT 31.57% + 22.80% = 54.37%, SOLARPV 16.12% + 7.75% = 23.87%. EVs are most shaped by parental background. For solar PV the dominant single factor is instead birth cohort at 49.24%, more than double the entire parental contribution. The 66.40% figure appears nowhere in the paper."
+    },
+    {
+      "id": "B5",
+      "section": "Burlinson: socioeconomic inequality in low-carbon technology adoption",
+      "tags": [
+        "table",
+        "compute"
+      ],
+      "input": "Rank the three technologies by overall dissimilarity index, and say whether that ranking matches the parental-background ranking.",
+      "output": "Theta_I: SOLARHEAT 0.425 > HYBRIDEV 0.408 > SOLARPV 0.317 (Table 5, p8). The parental ranking from B4 is HYBRIDEV > SOLARHEAT > SOLARPV. They disagree at the top: solar water heating has the most unequal adoption overall, but EV adoption is the most attributable to parental background."
+    },
+    {
+      "id": "B6",
+      "section": "Burlinson: socioeconomic inequality in low-carbon technology adoption",
+      "tags": [
+        "table"
+      ],
+      "input": "Which factor contributes least to inequality in electric vehicle adoption, and what is the contrast with its role in solar water heating?",
+      "output": "Ethnicity, at 0.52% for HYBRIDEV against 9.04% for SOLARHEAT, a seventeenfold difference. Table 5, p8."
+    },
+    {
+      "id": "B7",
+      "section": "Burlinson: socioeconomic inequality in low-carbon technology adoption",
+      "tags": [
+        "multi-hop"
+      ],
+      "input": "The paper reports three empirical findings enabled specifically by the longitudinal data. What are they?",
+      "output": "Burlinson p8: (a) socioeconomic inequality is highest for those persistently adopting (innovators) and those persistently not adopting; (b) innovators who relinquished their LCTs over time are more likely to have experienced disadvantaged circumstances; (c) more recent adopters (early-adopters) contributed to the reduction in inequality over the last decade, suggesting the low-carbon transition is increasingly being made by more disadvantaged individuals."
+    },
+    {
+      "id": "B8",
+      "section": "Burlinson: socioeconomic inequality in low-carbon technology adoption",
+      "tags": [
+        "single"
+      ],
+      "input": "Why does the paper argue the inequality-of-opportunity framework suits this question better than a general inequality measure?",
+      "output": "Because it isolates inequality due to predetermined circumstances beyond the individual's control, such as parental socioeconomic background. This both alleviates endogeneity concerns and carries normative weight: inequalities from factors outside individual responsibility are widely held to warrant compensation (Peragine 2004). Burlinson p2."
+    },
+    {
+      "id": "C1",
+      "section": "Calvillo: jobs, skills and regional implications of the heat transition",
+      "tags": [
+        "single"
+      ],
+      "input": "What share of UK emissions comes from heating buildings, and what is the stated heat pump deployment target?",
+      "output": "Nearly a fifth of UK emissions (BEIS 2022); the Heat and Buildings Strategy sets out plans for at least 600,000 heat pump systems per year by 2028. Calvillo p1."
+    },
+    {
+      "id": "C2",
+      "section": "Calvillo: jobs, skills and regional implications of the heat transition",
+      "tags": [
+        "single",
+        "trap"
+      ],
+      "input": "What job figure does the UK Government attach to the transition, and in which document?",
+      "output": "Up to 480,000 jobs by 2030, in Powering up Britain (UK Government 2023a). Calvillo p1. This is a government ambition for the wider transition, not a result of the paper's own model, which is the trap."
+    },
+    {
+      "id": "C3",
+      "section": "Calvillo: jobs, skills and regional implications of the heat transition",
+      "tags": [
+        "multi-hop"
+      ],
+      "input": "The abstract says net job creation is outpaced by something else. By what, and which sectors drive each side of that comparison?",
+      "output": "Real income gains outpace net job creation. Job creation is driven primarily by construction and manufacturing; the offsetting drag falls on wage- and labour-intensive consumer-facing industries such as finance and hospitality, where rising labour costs suppress employment. Calvillo p1."
+    },
+    {
+      "id": "C4",
+      "section": "Calvillo: jobs, skills and regional implications of the heat transition",
+      "tags": [
+        "figure"
+      ],
+      "input": "In the regional employment results, how does the assumed heat pump efficiency ratio change the sign of the employment effect?",
+      "output": "Fig. 5, p9 (FTE change at 2033, the peak activity year). Under HP use at 1:1 the \"All Other\" effects are broadly positive (London +4,388, South East +3,677, North West +2,863). At 4.8:1 they are broadly negative (London -1,457, South East -1,746, North West -1,153). Higher assumed efficiency means a larger energy bill saving but less offsetting expenditure elsewhere in the economy."
+    },
+    {
+      "id": "C5",
+      "section": "Calvillo: jobs, skills and regional implications of the heat transition",
+      "tags": [
+        "figure"
+      ],
+      "input": "Which region is worst affected in the fully combined scenario, and by how much?",
+      "output": "The South East, at -5,809 FTE in the \"All Other\" category, with London next at -3,748. Fig. 5 panel (f), p9. Every value in this figure is a map label; there is no underlying table anywhere in the document."
+    },
+    {
+      "id": "C6",
+      "section": "Calvillo: jobs, skills and regional implications of the heat transition",
+      "tags": [
+        "figure",
+        "compute"
+      ],
+      "input": "In the heat pump installation (loans) scenario, which region shows the largest construction employment gain, and does the same region show the largest \"All Other\" loss?",
+      "output": "Fig. 5 panel (b), p9. The South East shows both the largest construction gain (2,529) and the largest \"All Other\" loss (-5,954), so yes. London is close on both (2,114 and -3,881). The point is that the gains and losses concentrate in the same regions rather than offsetting across the country."
+    },
+    {
+      "id": "C7",
+      "section": "Calvillo: jobs, skills and regional implications of the heat transition",
+      "tags": [
+        "single"
+      ],
+      "input": "Which modelling approach does the paper use, and what does it combine that with?",
+      "output": "A dynamic economy-wide Computable General Equilibrium (CGE) model, mapped against regional economic and workforce data to get spatial distributional impacts. Calvillo p1."
+    },
+    {
+      "id": "E1",
+      "section": "Edwards-Jones: coastal community acceptance of tidal energy",
+      "tags": [
+        "single"
+      ],
+      "input": "How many participants took part, from how many towns, and by what method?",
+      "output": "Nineteen participants from three coastal towns along the Bristol Channel, in photo-elicitation interviews using self-taken photographs, with selected data from a previous energy survey providing a mixed-methods lens. Edwards-Jones p1."
+    },
+    {
+      "id": "E2",
+      "section": "Edwards-Jones: coastal community acceptance of tidal energy",
+      "tags": [
+        "single",
+        "compute"
+      ],
+      "input": "What is the gap between UK tidal stream potential and actual deployment?",
+      "output": "An estimated 11% of UK electricity demand could be delivered from tidal stream, at 11.5 GW of installed capacity, against less than 11 MW deployed in 2023. That is roughly a thousandfold gap, attributed largely to political and technical reasons. Edwards-Jones p1. The paper never states the ratio, and the units change from GW to MW mid-sentence."
+    },
+    {
+      "id": "E3",
+      "section": "Edwards-Jones: coastal community acceptance of tidal energy",
+      "tags": [
+        "figure"
+      ],
+      "input": "Which three themes are marked as primary in the concept model of participant perceptions of tidal energy, and what are their counts?",
+      "output": "Fig. 1, p4 (darker shaded spheres). Trade-offs (13 participants, 25 references), Sustainable energy (13, 20), and General positivity (13, 14). All three were raised by 13 of the 19 participants."
+    },
+    {
+      "id": "E4",
+      "section": "Edwards-Jones: coastal community acceptance of tidal energy",
+      "tags": [
+        "figure",
+        "compute"
+      ],
+      "input": "Which theme in the impacts concept model has the highest ratio of references to participants, and what does that suggest?",
+      "output": "Fig. 2, p4. Impact on recreational fishing, at 12 references from just 3 participants, a ratio of 4.0. By comparison the two primary themes are Impact on environment (15/12 = 1.25) and Impact on wildlife (11/9 = 1.22). A small number of participants returned to fishing repeatedly, which the paper explains by noting the sample included several people with work or hobby interests in the channel's fish population."
+    },
+    {
+      "id": "E5",
+      "section": "Edwards-Jones: coastal community acceptance of tidal energy",
+      "tags": [
+        "figure",
+        "trap"
+      ],
+      "input": "Which themes are marked primary in the impacts model, and are they the same as the most-referenced ones?",
+      "output": "Fig. 2, p4. The two primary (darker) themes are Impact on environment (12,15) and Impact on wildlife (9,11). They are the most referenced overall, but Impact on recreational fishing (3,12) has more references than Impact on wildlife has from three times fewer people, so \"primary\" here tracks breadth of participants rather than raw reference count."
+    },
+    {
+      "id": "E6",
+      "section": "Edwards-Jones: coastal community acceptance of tidal energy",
+      "tags": [
+        "multi-hop"
+      ],
+      "input": "Only a small number of participants raised job creation. How many, and what local context did they cite?",
+      "output": "The body text says only two participants highlighted job creation as a priority interest, citing opportunities created by the nearby Hinkley Point nuclear power plant and the Butlin's seaside resort. Note that Fig. 1's \"Job creation\" node records (1,1), so the figure and the text are counting slightly different things. Edwards-Jones p4."
+    },
+    {
+      "id": "E7",
+      "section": "Edwards-Jones: coastal community acceptance of tidal energy",
+      "tags": [
+        "single"
+      ],
+      "input": "What trade-off did a sea angler offer in favour of marine energy infrastructure?",
+      "output": "Citing windfarms off the Kent shore, they pointed to evidence that fish stocks had increased around the water surrounding the turbines, and suggested the same might hold for tidal constructions. Edwards-Jones p4."
+    },
+    {
+      "id": "E8",
+      "section": "Edwards-Jones: coastal community acceptance of tidal energy",
+      "tags": [
+        "single"
+      ],
+      "input": "What did participants say made tidal attractive relative to other renewables, and what caveat persisted?",
+      "output": "Six participants emphasised the certainty and reliability of tides for energy conversion, viewed favourably against environmental impact. The caveat was scale: support was conditional on impact being minimised, with one participant favouring small-scale lagoons specifically because they would avoid an undue environmental effect. Edwards-Jones p4."
+    },
+    {
+      "id": "P1",
+      "section": "Poulter: planning for decarbonisation in local and regional energy systems",
+      "tags": [
+        "single"
+      ],
+      "input": "Which three planning domains does the paper analyse?",
+      "output": "Local government-led energy planning, dispersed industrial site decarbonisation, and business planning for the electricity distribution networks. Poulter p1."
+    },
+    {
+      "id": "P2",
+      "section": "Poulter: planning for decarbonisation in local and regional energy systems",
+      "tags": [
+        "single"
+      ],
+      "input": "What share of GB electricity capacity is distributed generation, and why does the paper raise it?",
+      "output": "Circa 29%, about 30 GW. It is raised as evidence that policy attention has lagged the system: clean energy policy in GB has focused on large-scale generation and transmission, in line with the legacy of centralised oil and gas infrastructures, despite distributed resources already being at this scale. Poulter p1."
+    },
+    {
+      "id": "P3",
+      "section": "Poulter: planning for decarbonisation in local and regional energy systems",
+      "tags": [
+        "footnote"
+      ],
+      "input": "How many UK local governments had undertaken or were undertaking Local Area Energy Planning by mid-2023, and what proportion of councils is that?",
+      "output": "66 local governments, which a footnote records as 18% of UK councils. Poulter p5, body text plus footnote 4. The percentage is only in the footnote."
+    },
+    {
+      "id": "P4",
+      "section": "Poulter: planning for decarbonisation in local and regional energy systems",
+      "tags": [
+        "multi-hop"
+      ],
+      "input": "How do the statutory requirements for local energy planning differ across England, Wales and Scotland?",
+      "output": "Poulter p5. England has no statutory requirement, though an increasing number of local governments opt in. Wales committed that all areas would have a detailed local energy plan by the end of 2023-24 and funded every local government for technical support. Scotland legally requires Local Heat and Energy Efficiency Strategies, but LHEES do not cover energy supply, transport or waste, so several Scottish authorities are separately preparing whole-system LAEP-style analysis."
+    },
+    {
+      "id": "P5",
+      "section": "Poulter: planning for decarbonisation in local and regional energy systems",
+      "tags": [
+        "multi-hop"
+      ],
+      "input": "Trace the origin of Local Area Energy Planning: who developed it, under what programme, and where was the underlying tool piloted?",
+      "output": "Developed initially in England and Wales by the Energy Technologies Institute and subsequently the Energy Systems Catapult, as part of the Smart Systems and Heat programme (2011-2019). The EnergyPath Networks cost optimisation model was tested in three local areas: Bridgend, Bury and Newcastle. Learning from those pilots became the seven stage \"localised whole energy systems roadmap to decarbonisation\". Poulter p5."
+    },
+    {
+      "id": "P6",
+      "section": "Poulter: planning for decarbonisation in local and regional energy systems",
+      "tags": [
+        "single"
+      ],
+      "input": "What did interviewees say was the single clearest common challenge, and what quotation captures it?",
+      "output": "Capacity and capability within local authorities. A Welsh local government officer said most authorities \"know how much we need to do. But at the same time, local authorities just don't have any capacity\". Poulter p5."
+    },
+    {
+      "id": "P7",
+      "section": "Poulter: planning for decarbonisation in local and regional energy systems",
+      "tags": [
+        "multi-hop"
+      ],
+      "input": "What risk did interviewees attach to proprietary modelling in LAEPs?",
+      "output": "That plans become undertestable and then ignored. Modelling was provided on a proprietary basis, so areas could not test assumptions or refresh plans, leading to concerns LAEPs would become \"just another strategy\" or a \"plan on the shelf\", and specifically that lack of access to models and data sources produces a \"black box document [that] is not really worth the paper it's written on\". Poulter p5."
+    },
+    {
+      "id": "P8",
+      "section": "Poulter: planning for decarbonisation in local and regional energy systems",
+      "tags": [
+        "footnote"
+      ],
+      "input": "Why does the paper analyse Great Britain rather than the UK, despite referring to UK Government policy?",
+      "output": "Because the single energy market and the economic regulation of the energy networks do not include Northern Ireland, so the analysis covers England, Scotland and Wales. Poulter p1, footnote 1."
+    },
+    {
+      "id": "K1",
+      "section": "Peacock: place, power and the politics of energy decentralisation",
+      "tags": [
+        "single"
+      ],
+      "input": "What is the case study, and what distinguishes a TDDSTI from a community-led decentralised imaginary?",
+      "output": "Zero Carbon Rugeley (ZCR). A Top-Down Decentralised Socio-Technical Imaginary is designed by project implementors in isolation of communities, in contrast to bottom-up, community-led decentralised STI. Peacock p1."
+    },
+    {
+      "id": "K2",
+      "section": "Peacock: place, power and the politics of energy decentralisation",
+      "tags": [
+        "single"
+      ],
+      "input": "What five pieces of data does the study triangulate?",
+      "output": "The authors' subjective experience as project implementors for the community engagement aspects, secondary research of project websites, community gatekeeper interviews, \"cultural animation\" workshops, and social media engagement. Peacock p1."
+    },
+    {
+      "id": "K3",
+      "section": "Peacock: place, power and the politics of energy decentralisation",
+      "tags": [
+        "multi-hop"
+      ],
+      "input": "What is Rugeley's industrial history and what was the state of the power station at the time of data collection?",
+      "output": "A former hub for national coal-fired electricity production which boomed in the 1960s and drove considerable growth in the town, followed by decline with profound socio-economic and cultural impact. At the time of data collection the power station and two cooling towers were still dominant in the landscape; they have since been demolished. Peacock p5."
+    },
+    {
+      "id": "K4",
+      "section": "Peacock: place, power and the politics of energy decentralisation",
+      "tags": [
+        "single"
+      ],
+      "input": "Who assembled the ZCR consortium, how large was it, and what prior interest did the lead have in the site?",
+      "output": "Equans (formerly Engie), a transnational company that had purchased the old coal fired power stations after their 2016 closure with aspirations for a smart home development on the site. Equans assembled a consortium of 10 organisations spanning buildings, mobility, smart systems design, and non-technical feasibility including financial and regulatory barriers and business models. Peacock p5."
+    },
+    {
+      "id": "K5",
+      "section": "Peacock: place, power and the politics of energy decentralisation",
+      "tags": [
+        "figure"
+      ],
+      "input": "What does the theoretical framework say happens between project implementors' legitimation practices and community response?",
+      "output": "Fig. 1, p5. Implementors consolidate around an STI, design it, then attempt to legitimate it in a place through a cycle of emplacement, place-framing and place-making, attempting to co-produce the STI with place imaginaries. Those practices then refract through the collective place imaginaries held by the community, producing divergent responses along a positive, neutral and negative split."
+    },
+    {
+      "id": "K6",
+      "section": "Peacock: place, power and the politics of energy decentralisation",
+      "tags": [
+        "single"
+      ],
+      "input": "What was the authors' own role in the project they study?",
+      "output": "They designed and delivered the \"user-centric design\" work package, latterly referred to as community-centric design, together with community engagement. This is why their subjective experience as project implementors is one of the five data sources. Peacock p5."
+    },
+    {
+      "id": "T1",
+      "section": "Taylor: research agenda for UK industrial decarbonisation",
+      "tags": [
+        "single"
+      ],
+      "input": "What targets did the 2021 Industrial Decarbonisation Strategy set for 2035 and 2050?",
+      "output": "Cutting industrial greenhouse gas emissions by at least two-thirds by 2035 and by more than 90% by 2050. Taylor p1."
+    },
+    {
+      "id": "T2",
+      "section": "Taylor: research agenda for UK industrial decarbonisation",
+      "tags": [
+        "single"
+      ],
+      "input": "What two specific 2030 goals did the strategy set?",
+      "output": "Capturing 3 MtCO2 through carbon capture and storage, and replacing around 20 TWh of fossil fuels with lower-carbon alternatives such as hydrogen. Taylor p1."
+    },
+    {
+      "id": "T3",
+      "section": "Taylor: research agenda for UK industrial decarbonisation",
+      "tags": [
+        "single"
+      ],
+      "input": "What are the strategy's cluster targets?",
+      "output": "Four low-carbon industrial clusters by 2030, and at least one fully net-zero cluster by 2040. Taylor p1."
+    },
+    {
+      "id": "T4",
+      "section": "Taylor: research agenda for UK industrial decarbonisation",
+      "tags": [
+        "multi-hop",
+        "trap"
+      ],
+      "input": "What share of UK industrial emissions do clusters account for, versus dispersed sites?",
+      "output": "The paper gives two figures from different moments. Page 1 says clusters were \"at the time\" of the 2021 strategy responsible for around half of total industrial emissions. Page 3 says dispersed sites \"now account for more than half\" of UK industrial greenhouse gas emissions. The balance has tipped toward dispersed sites, which is precisely the paper's argument for redirecting research attention. Answering with only one of the two figures misses the point."
+    },
+    {
+      "id": "T5",
+      "section": "Taylor: research agenda for UK industrial decarbonisation",
+      "tags": [
+        "single"
+      ],
+      "input": "What are the four priority research areas?",
+      "output": "Decarbonising dispersed industrial sites, enabling electrification, developing markets for low-carbon products, and advancing resource efficiency. Taylor abstract and p1."
+    },
+    {
+      "id": "T6",
+      "section": "Taylor: research agenda for UK industrial decarbonisation",
+      "tags": [
+        "single"
+      ],
+      "input": "What specific challenges does the paper list for dispersed sites?",
+      "output": "Quoting Rattle et al. 2024 p.117: the geographical spread of industrial sites, the diversity of sectors involved, the small size and lack of capacity of many of the companies, incomplete information on appropriate abatement options and how these vary with location, the low TRL of some electrification options combined with the high cost of electricity, uncertainty around the availability and planning of supporting infrastructure, and a lack of institutional capacity and leadership at the local level. Taylor p3."
+    },
+    {
+      "id": "T7",
+      "section": "Taylor: research agenda for UK industrial decarbonisation",
+      "tags": [
+        "single",
+        "compute"
+      ],
+      "input": "How has the research literature on UK industrial decarbonisation grown?",
+      "output": "Over twice as many papers were published between 2020 and 2025 as in the preceding 20 years. So a five-year window produced more than double the output of the previous two decades, an order-of-magnitude change in annual rate. Taylor p3."
+    },
+    {
+      "id": "T8",
+      "section": "Taylor: research agenda for UK industrial decarbonisation",
+      "tags": [
+        "single"
+      ],
+      "input": "Which sectors does the paper flag as exceptions to the finding that decarbonisation has minimal price impact?",
+      "output": "Metals and non-metallic minerals may face more pronounced cost increases (Cooper et al. 2024), and petrochemicals may face a conflict between economic and low-carbon reorientation processes (Geels 2022). Taylor p3."
+    },
+    {
+      "id": "S1",
+      "section": "Seger: firm level optimisation for EV workplace charging",
+      "tags": [
+        "single"
+      ],
+      "input": "What are the headline results, and what data are they based on?",
+      "output": "Smart charging strategies can reduce peak loads by 28% and decrease charging costs and emissions by 9% compared with convenience charging, using real-world data from a global car manufacturer in South East England. Seger p1."
+    },
+    {
+      "id": "S2",
+      "section": "Seger: firm level optimisation for EV workplace charging",
+      "tags": [
+        "single"
+      ],
+      "input": "What proportion of UK car travel is commuting, and why does that matter for the paper's framing?",
+      "output": "21% of car-based trips and 25% of car-based kilometres in 2022. It establishes workplaces as a major car parking location, which is what makes workplace charging central to electrifying private passenger transport. Seger p1."
+    },
+    {
+      "id": "S3",
+      "section": "Seger: firm level optimisation for EV workplace charging",
+      "tags": [
+        "single"
+      ],
+      "input": "What are the three objective functions the model runs?",
+      "output": "Peak minimisation (PM-VF), charging cost minimisation (CCM), and carbon emission minimisation (CEM). Seger p4, p5."
+    },
+    {
+      "id": "S4",
+      "section": "Seger: firm level optimisation for EV workplace charging",
+      "tags": [
+        "figure",
+        "trap"
+      ],
+      "input": "The abstract claims a 28% peak reduction. Under the cost-minimising model at 50% EV adoption, what actually happens to peak demand?",
+      "output": "It goes up by 0.5%, while charging costs fall 19.6% and emissions fall 15.6% (Fig. 3e, p5). The headline peak reduction belongs to the peak-minimising objective, not the cost-minimising one. The +0.5% exists only as a bar label; no sentence in the paper contains it."
+    },
+    {
+      "id": "S5",
+      "section": "Seger: firm level optimisation for EV workplace charging",
+      "tags": [
+        "figure",
+        "compute"
+      ],
+      "input": "Compare the peak-minimising model between 15% and 50% EV adoption, and give the paper's explanation.",
+      "output": "PM-VF cuts maximum peak by 7.4% at S1 (15% adoption, Fig. 2d p4) and by 21.3% at S3 (50%, Fig. 3d p5), roughly tripling. The paper's second main insight (p5) explains it: PM-VF variability decreases substantially as the EV rate rises, because a larger controllable charging load gives the optimiser more room to flatten the site profile, making the outcome more predictable."
+    },
+    {
+      "id": "S6",
+      "section": "Seger: firm level optimisation for EV workplace charging",
+      "tags": [
+        "figure",
+        "compute"
+      ],
+      "input": "Does each objective function actually win on its own metric at 50% adoption? Show the comparison.",
+      "output": "Yes, on all three (Fig. 3, p5). Peak: PM-VF -21.3% beats CEM -4.1% and CCM +0.5%. Cost: CCM -19.6% beats CEM -15.1% and PM-VF -10.0%. Emissions: CEM -19.3% beats CCM -15.6% and PM-VF -10.7%. This is the paper's first stated insight, that each model type achieves the largest absolute saving on its own objective."
+    },
+    {
+      "id": "S7",
+      "section": "Seger: firm level optimisation for EV workplace charging",
+      "tags": [
+        "figure",
+        "compute",
+        "trap"
+      ],
+      "input": "Which objective delivers the best emissions result at 15% adoption, and is it the emissions-minimising one?",
+      "output": "Yes, but the margin is narrow and the ordering differs from the 50% case. At S1 (Fig. 2, p4): CEM -17.4%, CCM -13.5%, PM-VF -10.5%. Note that CCM at 15% achieves a larger cost saving (-18.5%) than CEM achieves on emissions, so the \"each model wins its own metric\" rule holds while the absolute magnitudes do not rank consistently across metrics."
+    },
+    {
+      "id": "S8",
+      "section": "Seger: firm level optimisation for EV workplace charging",
+      "tags": [
+        "multi-hop"
+      ],
+      "input": "What does the temporal sensitivity analysis change relative to the single-day analysis?",
+      "output": "It extends from one day (01 February 2023) to 28 consecutive days in February 2023, giving 28 individual model runs, to test how varying three exogenous time-dependent inputs affects results: the site's electricity consumption curve, the time-of-use electricity tariff, and the grid carbon intensity profile. Seger p4."
+    },
+    {
+      "id": "S9",
+      "section": "Seger: firm level optimisation for EV workplace charging",
+      "tags": [
+        "single"
+      ],
+      "input": "What is the normalisation baseline for the charging profile figures?",
+      "output": "Values are normalised relative to the mean electricity consumption of February 2023. Seger p4, Fig. 2 caption. Without this the y-axis values around 1.0 are uninterpretable."
+    },
+    {
+      "id": "M1",
+      "section": "Sharmina: policymaker-led scenarios for net-zero futures",
+      "tags": [
+        "single"
+      ],
+      "input": "What are the four Net Zero Society futures?",
+      "output": "Atomized Society, Metropolitan Society, Slow Lane Society, and Self-Preservation Society. Sharmina p3, Fig. 2."
+    },
+    {
+      "id": "M2",
+      "section": "Sharmina: policymaker-led scenarios for net-zero futures",
+      "tags": [
+        "figure"
+      ],
+      "input": "What two axes define the scenario matrix, and where does each scenario sit?",
+      "output": "Fig. 2, p3. The axes are social cohesion and institutional trust (horizontal) and economic growth and technological progress (vertical). Atomized is high growth / low cohesion; Metropolitan is high growth / high cohesion; Slow Lane is low growth / high cohesion; Self-Preservation is low growth / low cohesion."
+    },
+    {
+      "id": "M3",
+      "section": "Sharmina: policymaker-led scenarios for net-zero futures",
+      "tags": [
+        "multi-hop",
+        "figure"
+      ],
+      "input": "The paper says high-growth futures need 75% more engineered removals, and that high-trust futures reach net zero more easily. Using the scenario matrix, which scenario is in the favourable position on both counts?",
+      "output": "Slow Lane Society. On the matrix (Fig. 2, p3) it is low growth and high trust, so it avoids the high-growth engineered-removals penalty (which applies to Atomized and Metropolitan) and gains the high-trust advantage (shared with Metropolitan). Metropolitan is high on both axes and so picks up the removals penalty despite its high trust. Sharmina p3 and p4."
+    },
+    {
+      "id": "M4",
+      "section": "Sharmina: policymaker-led scenarios for net-zero futures",
+      "tags": [
+        "single",
+        "compute"
+      ],
+      "input": "What is the range of final energy demand reduction by 2050, and which scenarios are the endpoints?",
+      "output": "18% for Atomized Society up to 45% for Slow Lane Society, so a 27 percentage point spread driven purely by societal narrative rather than technology. Sharmina p1 abstract and p4."
+    },
+    {
+      "id": "M5",
+      "section": "Sharmina: policymaker-led scenarios for net-zero futures",
+      "tags": [
+        "multi-hop"
+      ],
+      "input": "Which scenario has the smallest reduction in final energy demand, and is it the same one that needs the least new land conversion?",
+      "output": "Yes, both are Atomized Society: an 18% final energy reduction and 5 kha per year of land conversion, against Slow Lane's 45% and 128 kha per year. The relationship is inverse because Atomized leans on engineered removals and fossil CCS rather than land-based removals. Sharmina p4."
+    },
+    {
+      "id": "M6",
+      "section": "Sharmina: policymaker-led scenarios for net-zero futures",
+      "tags": [
+        "compute"
+      ],
+      "input": "The paper says one scenario's land requirement is far outside recent UK experience. By what factor?",
+      "output": "Slow Lane needs 128 kha per year by 2050, while UK new forest planting has not exceeded 15 kha per year since 2004, roughly 8.5 times the highest recent annual rate. Sharmina p4. The paper gives both numbers but never divides them. The separately cited 1.6 kha growth in second-generation energy crops since 2018 is a cumulative total, not an annual rate, so including it in the division is wrong."
+    },
+    {
+      "id": "M7",
+      "section": "Sharmina: policymaker-led scenarios for net-zero futures",
+      "tags": [
+        "compute",
+        "trap"
+      ],
+      "input": "What is the range of 2050 electricity demand across scenarios, and check the paper's own arithmetic on it.",
+      "output": "490 TWh (Slow Lane) to 1,060 TWh (Atomized). The paper describes this as \"a 216% difference\", which is the ratio (1,060/490 = 2.16x) expressed as a percentage rather than the increase (which would be 116%). Corresponding capacity needs are 206 GW in Atomized, stated as 2.8 times the size of Slow Lane. Sharmina p4."
+    },
+    {
+      "id": "M8",
+      "section": "Sharmina: policymaker-led scenarios for net-zero futures",
+      "tags": [
+        "multi-hop",
+        "trap"
+      ],
+      "input": "Atomized Society has the smallest cut in final energy demand yet the largest electricity demand. Explain the apparent contradiction.",
+      "output": "They measure different things. Final energy demand falls least under Atomized because the narrative sustains high consumption, but the electricity share of that demand is far higher because decarbonisation is delivered through electrification and technology rather than demand reduction. Hence 1,060 TWh of electricity in 2050 alongside only an 18% total energy cut, and 206 GW of new capacity. Sharmina p4."
+    },
+    {
+      "id": "M9",
+      "section": "Sharmina: policymaker-led scenarios for net-zero futures",
+      "tags": [
+        "single",
+        "compute"
+      ],
+      "input": "How does today's novel carbon dioxide removal capacity compare with what the scenarios require?",
+      "output": "Novel (engineered) CDR today represents less than 0.1% of global CDR and removes 1.3 MtCO2 annually, against scenario requirements of 45 MtCO2 per year in Slow Lane and 80 MtCO2 per year in both Atomized and Metropolitan. That is roughly a 35x to 60x scale-up. Sharmina p4."
+    },
+    {
+      "id": "M10",
+      "section": "Sharmina: policymaker-led scenarios for net-zero futures",
+      "tags": [
+        "figure"
+      ],
+      "input": "The scenario characteristics figure covers four sectors. Name them and give two variables from each.",
+      "output": "Fig. 3, p3. The built environment (insulation uptake, home working, data processing demands, average household size, urbanization); travel and transport (CAVs uptake, active lifestyles, shared travel, road traffic, international aviation); work and industry (resource consumption, circular economy, product lifespan, sharing economy, reshoring of manufacturing); food and land use (afforestation, reliance on food imports, plant-based diets, cultured meat uptake, meat and dairy consumption, food waste)."
+    },
+    {
+      "id": "M11",
+      "section": "Sharmina: policymaker-led scenarios for net-zero futures",
+      "tags": [
+        "single"
+      ],
+      "input": "Which scenarios rely most heavily on BECCS, and to what extent?",
+      "output": "Metropolitan and Slow Lane, the two high-trust futures, with BECCS providing 64% and 100% of their respective removals. Sharmina p4."
+    },
+    {
+      "id": "X1",
+      "section": "Cross-document",
+      "tags": [
+        "cross-doc"
+      ],
+      "input": "One paper in this corpus cites another. Which, and for what claim?",
+      "output": "Taylor cites Calvillo et al. 2025 (Taylor p3) for the finding that worker and skills shortages are a common challenge in industrial decarbonisation, with average wage rates increasing as different sectors compete for a limited labour pool. That is the Calvillo paper in this fixture set, whose abstract makes the same wage-cost displacement argument for the heat pump rollout."
+    },
+    {
+      "id": "X2",
+      "section": "Cross-document",
+      "tags": [
+        "cross-doc"
+      ],
+      "input": "Two papers connect to the same government funding programme. Which programme, and how does each relate to it?",
+      "output": "Innovate UK's \"Prospering from the Energy Revolution\" (PFER). Peacock p5 states that Zero Carbon Rugeley was funded under it. Poulter p5 footnote 5 identifies PFER as the innovation funding that let the West Midlands explore a Regional Energy Planner role. Rugeley sits in the same region, so the two papers describe different projects funded by the same programme, one technical/community and one governance."
+    },
+    {
+      "id": "X3",
+      "section": "Cross-document",
+      "tags": [
+        "cross-doc"
+      ],
+      "input": "Two papers treat dispersed industrial sites as a priority. What does each say is missing, and do the diagnoses agree?",
+      "output": "Taylor names decarbonising dispersed sites as the first of four priority research areas, noting policy has focused on coastal clusters and that dispersed sites now exceed half of industrial emissions (p1, p3). Poulter treats dispersed industrial site decarbonisation as one of three planning domains and diagnoses a \"governance gap\": patchwork approach, poorly defined roles, policy targeting only one user intermediary role (p1). They agree dispersed sites are under-served relative to clusters but differ on cause: Taylor frames it as an evidence and research gap, Poulter as a governance and coordination failure."
+    },
+    {
+      "id": "X4",
+      "section": "Cross-document",
+      "tags": [
+        "cross-doc"
+      ],
+      "input": "Two papers study community responses to energy infrastructure. Contrast their methods and their explanations for intra-community divergence.",
+      "output": "Edwards-Jones (p1, p4): nineteen participants across three Bristol Channel towns, photo-elicitation with self-taken photographs plus survey data. Divergence arises from trade-offs between locally important environmental and coastal attributes and the wider significance of tidal energy. Peacock (p1, p5): one project, Zero Carbon Rugeley, triangulating five sources including the authors' own implementor experience and cultural animation workshops. Divergence arises because existing place imaginaries refract the project differently depending on positive or negative associations with the place. Both find intra-community divergence; one locates it in environmental attributes, the other in place identity and industrial history."
+    },
+    {
+      "id": "X5",
+      "section": "Cross-document",
+      "tags": [
+        "cross-doc",
+        "compute",
+        "trap"
+      ],
+      "input": "Put the tidal capacity figure next to the distributed generation figure and say what each implies.",
+      "output": "Edwards-Jones p1: 11.5 GW of tidal stream potential (11% of UK electricity demand) against under 11 MW deployed in 2023. Poulter p1: distributed generation already at circa 29% (30 GW) of GB capacity. Tidal is potential essentially undelivered; distributed generation is capacity already delivered but under-governed. Both are failures of policy attention to track where capacity is or could be. The trap is that 11.5 GW and 30 GW are close enough to conflate, and the tidal figure switches units mid-sentence."
+    },
+    {
+      "id": "X6",
+      "section": "Cross-document",
+      "tags": [
+        "cross-doc"
+      ],
+      "input": "Three papers give a UK net zero framing dated to 2019 or 2021. What is each, and do they conflict?",
+      "output": "Edwards-Jones p1: in 2019 the UK became the first major economy to adopt a legally binding obligation to reach net zero by 2050. Taylor p1: in 2021 the UK became the first major economy to launch an industrial decarbonisation strategy. Burlinson p1 refers to the UK's legally binding commitment to net zero by 2050 without dating it. No conflict: they are two different firsts, two years apart, and a keyword match on \"first major economy\" will return both."
+    },
+    {
+      "id": "X7",
+      "section": "Cross-document",
+      "tags": [
+        "cross-doc"
+      ],
+      "input": "Both Calvillo and Sharmina model UK futures to 2050 but reach opposite conclusions about what drives cost. Contrast them.",
+      "output": "Sharmina p1 finds technology-focused systems cost 20-100% more by 2050 than lower-demand ones, so demand reduction is the cheaper route. Calvillo p1 finds that the delivery cost pressure in the heat transition comes from labour and skills shortages triggering wage-cost inflation, a constraint that grows with the pace of deployment rather than with technology choice. They are complementary rather than contradictory: Sharmina prices the system, Calvillo prices the workforce needed to build it."
+    },
+    {
+      "id": "X8",
+      "section": "Cross-document",
+      "tags": [
+        "cross-doc"
+      ],
+      "input": "Which two papers share an author, and what is the thematic link?",
+      "output": "Peter Taylor appears on both Taylor (with Imogen Rattle) and Poulter (as the sixth author, Schools of Earth and Environment and Chemical and Process Engineering, Leeds). Imogen Rattle is also on both. The link is dispersed industrial site decarbonisation, which is Poulter's second case study and Taylor's first priority research area. See X3."
+    },
+    {
+      "id": "X9",
+      "section": "Cross-document",
+      "tags": [
+        "cross-doc"
+      ],
+      "input": "Three papers in the corpus deal with electric vehicles from different angles. What question does each ask?",
+      "output": "Burlinson asks who adopts EVs and whether adoption is socioeconomically unequal (finding parental occupation contributes 48.16% of the inequality). Seger asks how a firm should schedule workplace charging once EVs are adopted, trading peak, cost and emissions. Sharmina embeds EVs implicitly in scenario variables for travel and transport (CAVs uptake, road traffic, shared travel). Adoption, operation, and system context respectively."
+    },
+    {
+      "id": "X10",
+      "section": "Cross-document",
+      "tags": [
+        "cross-doc",
+        "trap"
+      ],
+      "input": "Several papers name a UK heat-related target. Collect them and note which belong to which document.",
+      "output": "Calvillo p1: at least 600,000 heat pump systems per year by 2028 (Heat and Buildings Strategy), and up to 480,000 jobs by 2030 (Powering up Britain). Poulter p5: Wales committed all areas to a detailed local energy plan by end of 2023-24; Scotland legally mandates LHEES. Taylor p1: four low-carbon industrial clusters by 2030, one net-zero cluster by 2040. These are frequently conflated because all are UK decarbonisation deadlines in the late 2020s."
+    },
+    {
+      "id": "R1",
+      "section": "Retrieval stress tests",
+      "tags": [],
+      "input": "Which of these papers reports results from a randomised controlled trial?",
+      "output": "None. Expected behaviour is to say so. The corpus contains scenario modelling, CGE modelling, optimisation, econometric decomposition, and qualitative interview work, but no RCT. A model that pattern-matches \"trial\" to a methods section and invents one has failed."
+    },
+    {
+      "id": "R2",
+      "section": "Retrieval stress tests",
+      "tags": [],
+      "input": "What does the corpus say about offshore wind capacity targets in Scotland?",
+      "output": "Nothing substantive. Wind appears only incidentally (Edwards-Jones p4 mentions Kent windfarms via a participant anecdote; Poulter p1 mentions large-scale generation generally). Expected behaviour is to report the absence rather than generalise from the tidal or distributed generation figures."
+    },
+    {
+      "id": "R3",
+      "section": "Retrieval stress tests",
+      "tags": [],
+      "input": "How many participants were interviewed across the two qualitative studies in this corpus?",
+      "output": "Edwards-Jones states nineteen participants. Peacock does not give a participant count for its gatekeeper interviews or cultural animation workshops in the pages covered here. Expected behaviour is to give the nineteen and flag the second as not stated, rather than inventing a total."
+    },
+    {
+      "id": "R4",
+      "section": "Retrieval stress tests",
+      "tags": [],
+      "input": "What is the value of the dissimilarity index for solar PV in the main sample, as opposed to the persistent adopter sub-sample?",
+      "output": "Table 5 (p8) gives 0.317 for the persistent adopters/non-adopters sub-sample. The main sample values are in Table 2 and plotted in Fig. 1 p8, where the Wave 10 estimate sits near 0.20 and Wave 4 near 0.28. Expected behaviour is not to return the 0.317 as if it were the main sample figure; that is exactly the confusion Fig. 1 is drawn to prevent."
+    },
+    {
+      "id": "R5",
+      "section": "Retrieval stress tests",
+      "tags": [],
+      "input": "Summarise the corpus in one paragraph and name the single unifying theme.",
+      "output": "All eight are UK net zero papers, and the unifying thread is the gap between national targets and delivery: who adopts technology (Burlinson), who builds it (Calvillo), who accepts it (Edwards-Jones, Peacock), who plans it (Poulter, Taylor), how it is operated (Seger), and what society it assumes (Sharmina). Tests whether retrieval can span all eight files in one answer rather than returning the top-scoring two."
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+1. Install Docling 
+
+2. Research local embedding options - model and the storage of these. 
+
+Index capable of holding strings and embeddings (1024 - 3072 dimensions)
+Hybrid search capability - keyword + cosine HNSW search equivalent 
+
+3. Consider producing summary level chunks for each of the documents. 
+
+4. Decide what to do with figures - lets assume they're not gonna come through as their own reference. 
+
+5. Docling pipeline -> OCR / extraction - produce a mix of table, text and figure outputs. 
+6. Consolidate those outputs into a single schema - design schema
+
+Base Element Class
+
+Table(Element) - summary of whats in there
+Figure - Caption equivalent
+Text() - /summary/
+
+Shared - Chunk name, file name, file type, raw text content
+asset filepaths
+
+7. Accepts Element class, produces the correct index entry. 
+
+8. Create a search system which can look over the index - hybrid search. Keyword be LLM written / query rewritten. (OOS)
+
+9. Once result comes back - define how that looks - citations are gonna be LLM led. 
+Best way to implement is via ID and post Lookup. 
+
+10. Test based on the questions.
+
+Sample Questions
+```
+{
+    "type": "general",
+    "question": "Heat pumps vs. EV charging: who bears the cost?",
+    "answer": "Heat pump costs shift GDP outcomes sharply by financing method — households paying upfront causes a −0.59% GDP contraction, while loans or grants soften the blow — whereas EV workplace charging costs can actually be reduced (by about 8.9-10%) relative to uncontrolled charging when smart optimisation strategies like peak-minimisation replace 'dumb' charging.",
+    "metadata": {
+        "sources": [
+        { "file": "1-s2.0-S0301421525000862-main.pdf", "page": 12 },
+        { "file": "Firm-level-optimisation-strategies-for-sustainable-and-cost-effective-electric-vehicle-workplace-charging.pdf", "page": 3 }
+        ]
+    }
+}
+```
+
+11. Future capability: structured `/ask` API output with `metadata.sources`.
+
+Currently `/ask` returns only `{"answer": str}`, with citations left as free text
+in the prose (e.g. "(report.pdf, p. 4)") -- see src/api.py and
+src/utils/qa_agent.py. To match the sample question format above
+(`answer` + `metadata.sources: [{file, page}]`), replace the agent's plain-text
+final turn with a schema-constrained response (answer + sources), the same way
+src/utils/figure_captioner.py already uses `output_config.format` for structured
+output elsewhere in this repo. Touches: QAAgent.answer()'s return type, a new
+Source model, api.py's response model, main.py's CLI printer, and the eval
+grading path (currently compares plain strings).
+
+Cheaper fallback considered: regex-parse the existing "(file.pdf, p. 4)" pattern
+out of the prose answer -- no agent-loop changes, but fragile against page
+ranges, short names, or paraphrased citations.

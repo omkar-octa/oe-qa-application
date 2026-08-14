@@ -1,0 +1,14 @@
+pydantic
+pydantic-settings
+pytest
+fastapi
+uvicorn[standard]
+httpx2
+
+docling
+pdf-inspector
+pypdfium2
+anthropic
+openai
+psycopg[binary]
+pgvector

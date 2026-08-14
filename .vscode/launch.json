@@ -1,0 +1,105 @@
+{
+    // Commands here mirror README.md: everything runs with cwd = src/, because
+    // Settings() reads .env and the default index path relative to that directory.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "main.py: ingest",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/main.py",
+            "args": ["ingest"],
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "main.py: ask",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/main.py",
+            "args": ["ask", "${input:question}"],
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            // No --reload: the reload flag re-execs uvicorn in a child process
+            // that debugpy never attaches to, so breakpoints silently stop
+            // hitting. Restart the debugger instead of relying on reload while
+            // debugging; use the plain `uvicorn api:app --reload` from the
+            // README when you just want the server running, not debugged.
+            "name": "api: FastAPI (uvicorn)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": ["api:app", "--port", "8000"],
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            // Costs a handful of real Claude API calls -- see the docstring in
+            // scripts/test_tool_use.py.
+            "name": "scripts: test_tool_use.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/scripts/test_tool_use.py",
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "scripts: check_postgres.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/scripts/check_postgres.py",
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            // Passing the open file directly lets pytest discover
+            // src/tests/pytest.ini by walking up from the file's own
+            // directory, regardless of cwd.
+            "name": "pytest: current file",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "args": ["${file}", "-v"],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "pytest: unit tests",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "args": ["src/tests", "-m", "not integration"],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            // Slow on first run (Docling model downloads); two of these need
+            // `docker compose up -d` for Postgres/pgvector.
+            "name": "pytest: integration tests",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "args": ["src/tests", "-m", "integration"],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ],
+    "inputs": [
+        {
+            "id": "question",
+            "type": "promptString",
+            "description": "Question to ask the knowledge base (costs a real Claude API call)",
+            "default": "What does the research say about industrial decarbonisation in the UK?"
+        }
+    ]
+}

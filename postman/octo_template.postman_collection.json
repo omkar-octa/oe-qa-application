@@ -1,0 +1,320 @@
+{
+  "info": {
+    "_postman_id": "33f6832a-c670-4b42-9a17-1d2b00865966",
+    "name": "octo_template QA API",
+    "description": "Requests for the FastAPI service in src/api.py, which wraps QAAgent's agentic retrieval loop over the PDF knowledge base. Start the server first: `uvicorn api:app --reload` from src/, after running `python main.py ingest`.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Ask a question",
+      "id": "996d543c-8f6c-4cb4-8f1d-bf4ee1b4a3f9",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"question\": \"What does the research say about industrial decarbonisation in the UK?\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/ask",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "ask"
+          ]
+        },
+        "description": "Answers a question from the knowledge base. Response schema: {\"answer\": \"<string>\"}."
+      },
+      "response": []
+    },
+    {
+      "name": "Ask a question - empty question (422)",
+      "id": "f19ab641-4bd4-4b46-9bfa-a7e2bfc342c3",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"question\": \"   \"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/ask",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "ask"
+          ]
+        },
+        "description": "A blank/whitespace-only question is rejected with 422 rather than being sent to Claude."
+      },
+      "response": []
+    },
+    {
+      "name": "Eval questions (sample)",
+      "description": "A cross-section of the fixture eval bank in docs/eval_questions.json -- one per tag (single, trap, table+compute, footnote, figure, multi-hop, cross-doc). Each request's description holds the reference answer and citation so the agent's response can be checked by hand. Requires `python main.py ingest` to have been run against src/tests/fixtures first. Full bank: `python src/scripts/run_evals.py`.",
+      "item": [
+        {
+          "name": "B1 - single",
+          "id": "1e2f0a8a-0a6b-4a1e-9a1e-1a2b3c4d5e01",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"question\": \"Which three low-carbon technologies does the study track, and what longitudinal dataset does it use?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/ask",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ask"
+              ]
+            },
+            "description": "Reference answer: Solar photovoltaics, solar water heating, and electric vehicles, using UKHLS (Understanding Society), comparing Wave 4 against Wave 10. Burlinson p1, p8."
+          },
+          "response": []
+        },
+        {
+          "name": "B2 - single, trap",
+          "id": "1e2f0a8a-0a6b-4a1e-9a1e-1a2b3c4d5e02",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"question\": \"What share of the UK's 2035 power sector abatement target does the paper attribute to consumer adoption of low-carbon technologies?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/ask",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ask"
+              ]
+            },
+            "description": "Reference answer: Nearly half, 47%, citing the Committee on Climate Change (2022). Burlinson p1. Trap: the same page discusses the 2050 net zero commitment, so a retrieval hit on \"target\" can return the wrong year."
+          },
+          "response": []
+        },
+        {
+          "name": "B4 - table, compute",
+          "id": "1e2f0a8a-0a6b-4a1e-9a1e-1a2b3c4d5e03",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"question\": \"In the persistent adopters/non-adopters sub-sample, which technology has the highest combined contribution from parental background, and how does that compare with the largest single contributor for solar PV?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/ask",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ask"
+              ]
+            },
+            "description": "Reference answer: Table 5, p8. Parental occupation plus parental education: HYBRIDEV 48.16% + 18.24% = 66.40%, SOLARHEAT 31.57% + 22.80% = 54.37%, SOLARPV 16.12% + 7.75% = 23.87%. EVs are most shaped by parental background. For solar PV the dominant single factor is instead birth cohort at 49.24%, more than double the entire parental contribution. The 66.40% figure appears nowhere in the paper."
+          },
+          "response": []
+        },
+        {
+          "name": "P3 - footnote",
+          "id": "1e2f0a8a-0a6b-4a1e-9a1e-1a2b3c4d5e04",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"question\": \"How many UK local governments had undertaken or were undertaking Local Area Energy Planning by mid-2023, and what proportion of councils is that?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/ask",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ask"
+              ]
+            },
+            "description": "Reference answer: 66 local governments, which a footnote records as 18% of UK councils. Poulter p5, body text plus footnote 4. The percentage is only in the footnote."
+          },
+          "response": []
+        },
+        {
+          "name": "C4 - figure",
+          "id": "1e2f0a8a-0a6b-4a1e-9a1e-1a2b3c4d5e05",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"question\": \"In the regional employment results, how does the assumed heat pump efficiency ratio change the sign of the employment effect?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/ask",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ask"
+              ]
+            },
+            "description": "Reference answer: Fig. 5, p9 (FTE change at 2033, the peak activity year). Under HP use at 1:1 the \"All Other\" effects are broadly positive (London +4,388, South East +3,677, North West +2,863). At 4.8:1 they are broadly negative (London -1,457, South East -1,746, North West -1,153). Higher assumed efficiency means a larger energy bill saving but less offsetting expenditure elsewhere in the economy."
+          },
+          "response": []
+        },
+        {
+          "name": "B7 - multi-hop",
+          "id": "1e2f0a8a-0a6b-4a1e-9a1e-1a2b3c4d5e06",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"question\": \"The paper reports three empirical findings enabled specifically by the longitudinal data. What are they?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/ask",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ask"
+              ]
+            },
+            "description": "Reference answer: Burlinson p8: (a) socioeconomic inequality is highest for those persistently adopting (innovators) and those persistently not adopting; (b) innovators who relinquished their LCTs over time are more likely to have experienced disadvantaged circumstances; (c) more recent adopters (early-adopters) contributed to the reduction in inequality over the last decade, suggesting the low-carbon transition is increasingly being made by more disadvantaged individuals."
+          },
+          "response": []
+        },
+        {
+          "name": "X1 - cross-doc",
+          "id": "1e2f0a8a-0a6b-4a1e-9a1e-1a2b3c4d5e07",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"question\": \"One paper in this corpus cites another. Which, and for what claim?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/ask",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ask"
+              ]
+            },
+            "description": "Reference answer: Taylor cites Calvillo et al. 2025 (Taylor p3) for the finding that worker and skills shortages are a common challenge in industrial decarbonisation, with average wage rates increasing as different sectors compete for a limited labour pool. That is the Calvillo paper in this fixture set, whose abstract makes the same wage-cost displacement argument for the heat pump rollout."
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000",
+      "type": "string"
+    }
+  ]
+}
