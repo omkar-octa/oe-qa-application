@@ -97,7 +97,7 @@ result from its file so the model can tell whether it is in the right document a
 to pull the whole thing. Profiles are never ranked against extracts and are never citable.
 
 `tests/fixtures/index.json` is a committed, fully-enriched extraction index for the eight
-bundled PDFs (captioning plus `--enhance-metadata --summarise-documents`, 417 chunks), so
+bundled PDFs (captioning plus `--enhance-metadata --summarise-documents`, 428 chunks), so
 `index` can be run straight from a fresh clone without an `ingest` pass first:
 
 ```

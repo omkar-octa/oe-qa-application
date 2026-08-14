@@ -75,10 +75,20 @@ Both downloads need network access on first use. Docling's can be pre-seeded by 
 - `src/tests/fixtures/`: eight scientific PDFs on energy and decarbonisation topics, used
   as both the test corpus and the default `ingest` source. Committed to the repo.
 - `src/data/index.json`: the generated index from the default `--extractor fast` path,
-  currently 422 chunks across the eight fixtures: 384 text/table chunks (36 of them
-  `kind="table"`) plus 38 `kind="figure"`/`kind="text"` chunks from figure captioning and
+  currently 428 chunks across the eight fixtures: 384 text/table chunks (36 of them
+  `kind="table"`) plus ~44 `kind="figure"`/`kind="text"` chunks from figure captioning and
   misclassified-text recovery, which run by default now (`--no-caption-figures` opts out).
-  Gitignored via `src/data/` and fully regenerable with `python main.py ingest`.
+  The figure/text count moves slightly run to run (these are live model calls, not a
+  deterministic parse), so treat it as an approximate range rather than a fixed number.
+  This copy was also built with `--enhance-metadata --summarise-documents`, so its table
+  chunks carry LLM summaries and it carries all 8 document profiles; a plain
+  `python main.py ingest` without those two flags will have the same ~422-428 chunks but
+  no summaries or profiles. Gitignored via `src/data/` and fully regenerable.
+- `src/tests/fixtures/index.json`: a committed copy of the same fully-enriched index
+  (currently 428 chunks, 8 document profiles), kept in sync manually so `main.py index`
+  can run straight from a fresh clone. Regenerate `src/data/index.json` as above and copy
+  it over after any change to extraction, captioning, table summarisation or document
+  profiling.
 - `src/data/index_vision.json`: the generated index from `--extractor vision` (currently
   348 chunks -- close to but not identical to the fast-path count, since a page read as
   an image and a page parsed from PDF structure don't always split into the same number
@@ -94,13 +104,13 @@ run to run than extraction itself:
 
 | Fixture | Extracted | With captioning (default) |
 | --- | --- | --- |
-| 1-s2.0-S0140988325000672-main.pdf | 63 | 67 |
-| 1-s2.0-S0301421525000862-main.pdf | 52 | 62 |
+| 1-s2.0-S0140988325000672-main.pdf | 63 | 65 |
+| 1-s2.0-S0301421525000862-main.pdf | 52 | 69 |
 | 1-s2.0-S1755008425000705-main.pdf | 35 | 41 |
-| 1-s2.0-S2214629624004663-main.pdf | 58 | 65 |
+| 1-s2.0-S2214629624004663-main.pdf | 58 | 64 |
 | 1-s2.0-S2214629626003270-main.pdf | 44 | 50 |
 | A-policy-relevant-research-agenda-...-UK.pdf | 33 | 33 |
-| Firm-level-optimisation-strategies-...-charging.pdf | 33 | 35 |
+| Firm-level-optimisation-strategies-...-charging.pdf | 33 | 37 |
 | s41560-025-01898-3.pdf | 66 | 69 |
 
 Counts rose from 345 when tables stopped sharing chunks with the prose around
@@ -109,15 +119,15 @@ into three where it used to split into one.
 
 ## Tests
 
-179 tests, split by marker in `src/tests/pytest.ini`. The suite is changing quickly, so
+193 tests, split by marker in `src/tests/pytest.ini`. The suite is changing quickly, so
 treat these counts as a snapshot to re-check rather than a fixed number.
 
 | Selection | Count | Requirements |
 | --- | --- | --- |
-| `pytest src/tests -m "not integration"` | 166 | None. Claude and OpenAI calls are all mocked |
-| `pytest src/tests -m integration` | 13 | Real PDFs. Four of them (`test_postgres_connection.py`, `test_postgres_store_integration.py`) need the Postgres container running |
+| `pytest src/tests -m "not integration"` | 179 | None. Claude and OpenAI calls are all mocked |
+| `pytest src/tests -m integration` | 14 | Real PDFs. Four of them (`test_postgres_connection.py`, `test_postgres_store_integration.py`) need the Postgres container running |
 
-Those two selections cover everything, but `-m unit` collects only 165: `test_basic.py`'s
+Those two selections cover everything, but `-m unit` collects only 178: `test_basic.py`'s
 placeholder carries no marker, so it runs under `-m "not integration"` and is skipped by
 `-m unit`. Mark it or delete it if the marker split is ever enforced.
 
